@@ -2337,6 +2337,8 @@ We trigger `GameplayCues` by sending a corresponding `GameplayTag` with the **ma
 
 **Note:** Just to reiterate, `GameplayCue` `GameplayTags` need to start with the parent `GameplayTag` of `GameplayCue`. So for example, a valid `GameplayCue` `GameplayTag` might be `GameplayCue.A.B.C`.
 
+If named according to a standard, `GameplayCues` assets will have their `GameplayCue` `GameplayTag` automatically filled in. If you want a `GameplayCue` to be associated with the tag `GameplayCue.A.B.C` you can name your `GameplayCue` one of any `GameplayCue_A_B_C`, `GC_A_B_C`, or simply `A_B_C`. If the tag `GameplayCue.A.B.C` exists, the tag on the asset will be autmoatically filled. To see the implementation of where this occurs, see `UAbilitySystemGlobals::DeriveGameplayCueTagFromAssetName`.
+
 There are two classes of `GameplayCueNotifies`, `Static` and `Actor`. They respond to different events and different types of `GameplayEffects` can trigger them. Override the corresponding event with your logic.
 
 | `GameplayCue` Class                                                                                                                  | Event             | `GameplayEffect` Type    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
