@@ -518,6 +518,7 @@ Here's a list of all of these `Categories` used by the base GAS plugin:
 - OwnedTagsCategory
 - SourceTagsCategory
 - TargetTagsCategory
+- GameplayEventTagsCategory
 
 You can also use this meta tag in your own project to add your own `Categories`. This is mostly useful so that you can map multiple concrete tag path filters to a single category name used throughout your project.
 
