@@ -510,7 +510,7 @@ GAS will mark `GameplayTag` properties with the meta tag `Categories` to help fi
 	FGameplayTagContainer ActivationOwnedTags;
 ```
 
-The intention with these is not that they map to a literal `GameplayTag` name, but rather that these are per project mappings that you remap to whatever tags you desire. You can map these categories to concrete tag paths using the `Category Remappings` project settings under the `GameplayTags` section of project settings. Each entry will have a `Base Category` that matches the name of one of the `Categories` meta tags and a set of `Remap Categories` being a list of a actual tag names to remap to.
+The intention with these is not that they map to a literal `GameplayTag` name, but rather that these are per project mappings that you remap to whatever tags you desire. You can map these categories to concrete tag paths using the `Category Remappings` project settings under the `GameplayTags` section of project settings. Each entry will have a `Base Category` that matches the name of one of the `Categories` meta tags and a set of `Remap Categories` being a list of a actual tag names to remap to. For example, if you map `AbilityTagCategory` to the tag `MyGame.Abilities` then when editing `BlockAbilitiesWithTag` on your abilities, only tags that are children of `MyGame.Abilities` will appear.
 
 Here's a list of all of these `Categories` used by the base GAS plugin:
 - TriggerTagCategory
@@ -519,7 +519,7 @@ Here's a list of all of these `Categories` used by the base GAS plugin:
 - SourceTagsCategory
 - TargetTagsCategory
 
-You can also use this meta tag in your own project to add your own `Categories`. This is mostly useful so that you can map multiple concrete tag path filters to a single category name.
+You can also use this meta tag in your own project to add your own `Categories`. This is mostly useful so that you can map multiple concrete tag path filters to a single category name used throughout your project.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -2337,7 +2337,7 @@ We trigger `GameplayCues` by sending a corresponding `GameplayTag` with the **ma
 
 **Note:** Just to reiterate, `GameplayCue` `GameplayTags` need to start with the parent `GameplayTag` of `GameplayCue`. So for example, a valid `GameplayCue` `GameplayTag` might be `GameplayCue.A.B.C`.
 
-If named according to a standard, `GameplayCues` assets will have their `GameplayCue` `GameplayTag` automatically filled in. If you want a `GameplayCue` to be associated with the tag `GameplayCue.A.B.C` you can name your `GameplayCue` one of any `GameplayCue_A_B_C`, `GC_A_B_C`, or simply `A_B_C`. If the tag `GameplayCue.A.B.C` exists, the tag on the asset will be autmoatically filled. To see the implementation of where this occurs, see `UAbilitySystemGlobals::DeriveGameplayCueTagFromAssetName`.
+If named properly, `GameplayCues` assets will have their `GameplayCue` `GameplayTag` automatically filled in. If you want a `GameplayCue` to be associated with the tag `GameplayCue.A.B.C` you can name your `GameplayCue` one of any `GameplayCue_A_B_C`, `GC_A_B_C`, or simply `A_B_C`. If the tag `GameplayCue.A.B.C` exists, the tag on the asset will be autmoatically filled. To see the implementation of where this occurs, see `UAbilitySystemGlobals::DeriveGameplayCueTagFromAssetName`.
 
 There are two classes of `GameplayCueNotifies`, `Static` and `Actor`. They respond to different events and different types of `GameplayEffects` can trigger them. Override the corresponding event with your logic.
 
